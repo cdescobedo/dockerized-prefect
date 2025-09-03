@@ -1,0 +1,18 @@
+[project]
+name = "dockerized-prefect"
+version = "0.1.0"
+description = "Dockerized flow using uv and a custom Dockerfile"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["prefect[docker]>=3.4.15"]
+
+[dependency-groups]
+dev = ["ruff>=0.12.11"]
+
+# uncomment this if your project uses packages from a private package registry
+# [[too.uv.index]]
+# name = "private"
+# url = "https://your.private.repo"
+
+[tool.pyright]
+typeCheckingMode = "off"

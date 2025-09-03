@@ -1,0 +1,79 @@
+# python artifacts
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+
+# Type checking artifacts
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+
+# Linting and Formatting
+.ruff_cache
+
+# IPython
+profile_default/
+ipython_config.py
+*.ipynb_checkpoints/*
+
+# Testing
+tests
+**/.pytest_cache
+.coverage
+report.xml
+coverage.xml
+
+# Poetry
+#pyproject.toml
+#poetry.lock
+
+# Prefect
+prefect*.yaml
+README.md
+.prefectignore
+prefect
+
+# Environments
+.python-version
+.env
+.venv
+env/
+venv/
+
+# MacOS
+.DS_Store
+
+# Dask
+dask-worker-space/
+
+# Editors
+.idea/
+.vscode/
+
+# CI
+ci
+.gitlab-ci.yml
+gitlab
+
+# Git
+.git
+.gitignore
+CHANGELOG.md
+.pre-commit-config.yaml
+
+# Docker
+.dockerignore
+Dockerfile
+compose.yaml
+
+# Google API
+**/token.json
+**/credentials.json
+
+# local dev
+dev
+.env.local
+data

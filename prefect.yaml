@@ -1,0 +1,50 @@
+# Welcome to your prefect.yaml file! You can use this file for storing and managing
+# configuration for deploying your flows. We recommend committing this file to source
+# control along with your flow code.
+
+# Generic metadata about this project
+name: dockerized-prefect
+prefect-version: 3.4.15
+
+# build section allows you to manage and build docker images
+build:
+  - prefect_docker.deployments.steps.build_docker_image:
+      id: build_image
+      requires: prefect-docker>=0.3.1
+      image_name: cdescobedo/modern-prefect
+      tag: 0.1.0
+      additional_tags:
+        - latest
+      dockerfile: Dockerfile
+      buildargs:
+        # this is needed if you are using packages from a private repo
+        # replace PRIVATE with the name of the index in your pyproject.toml file
+        UV_INDEX_PRIVATE_PASSWORD: "{{ $UV_INDEX_PRIVATE_PASSWORD }}"
+
+# push section allows you to manage if and how this project is uploaded to remote locations
+push:
+  - prefect_docker.deployments.steps.push_docker_image:
+      requires: prefect-docker>=0.3.1
+      image_name: "{{ build_image.image_name }}"
+      tag: "{{ build_image.tag }}"
+
+# pull section allows you to provide instructions for cloning this project in remote locations
+pull:
+  - prefect.deployments.steps.set_working_directory:
+      directory: /opt/prefect/dockerized-prefect
+
+# the deployments section allows you to provide configuration for deploying flows
+deployments:
+  - name: Dockerized Flow
+    version: 0.1.0
+    tags: []
+    description: null
+    schedule: {}
+    flow_name: null
+    entrypoint: main.py:main
+    parameters: {}
+    work_pool:
+      name: dockerized
+      work_queue_name: null
+      job_variables:
+        image: "{{ build_image.image }}"
