@@ -1,0 +1,3 @@
+FROM prefecthq/prefect:3.4.15-python3.13
+COPY . /opt/prefect/dockerized-prefect/
+WORKDIR /opt/prefect/dockerized-prefect/

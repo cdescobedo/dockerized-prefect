@@ -35,13 +35,13 @@ pull:
 
 # the deployments section allows you to provide configuration for deploying flows
 deployments:
-  - name: Dockerized Flow
+  - name: dockerized-flow-local
     version: 0.1.0
     tags: []
     description: null
-    schedule: {}
+    schedule: null
     flow_name: null
-    entrypoint: main.py:main
+    entrypoint: dockerized_flow.py:dockerized_flow
     parameters: {}
     work_pool:
       name: dockerized

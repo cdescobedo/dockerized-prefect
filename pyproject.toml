@@ -15,4 +15,4 @@ dev = ["ruff>=0.12.11"]
 # url = "https://your.private.repo"
 
 [tool.pyright]
-typeCheckingMode = "strict"
+typeCheckingMode = "basic"

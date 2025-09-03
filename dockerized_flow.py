@@ -1,7 +1,7 @@
 from prefect import flow
 
 
-@flow(log_prints=True)
+@flow(name="Dockerized Flow", log_prints=True)
 def dockerized_flow() -> None:
     print("Hello from dockerized-prefect!!")
 
