@@ -11,7 +11,7 @@ build:
   - prefect_docker.deployments.steps.build_docker_image:
       id: build_image
       requires: prefect-docker>=0.3.1
-      image_name: cdescobedo/modern-prefect
+      image_name: cdescobedo/dockerized-prefect
       tag: 0.1.0
       additional_tags:
         - latest
