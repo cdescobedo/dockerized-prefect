@@ -2,7 +2,7 @@ from prefect import flow
 
 
 @flow(log_prints=True)
-def main():
+def main() -> None:
     print("Hello from dockerized-prefect!!")
 
 
